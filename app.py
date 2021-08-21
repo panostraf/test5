@@ -1,16 +1,10 @@
 from flask import Flask
-import dash
-from flask_bootstrap import Bootstrap
+app = Flask(__name__)
 
-server = Flask(__name__)
-
-# server.config['DEBUG'] = True
-bootstrap = Bootstrap(server)
+@app.route('/')
+def hello():
+    return 'Hello World'
 
 
-
-app = dash.Dash(__name__, server = server, url_base_pathname='/dash/')
-
-app.config['suppress_callback_exceptions'] = True
-
-from dash_package import routes
+if __name__=='__main__':
+    app.run()
